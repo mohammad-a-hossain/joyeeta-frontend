@@ -1,3 +1,6 @@
 
 export * from './categoryAction'
-export * from './productAction'
+export * from './product.action'
+export * from './auth.action'
+export * from './product.action';
+

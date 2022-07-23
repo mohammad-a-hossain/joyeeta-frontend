@@ -1,4 +1,4 @@
 export const API = 'http://localhost:7070/api'
 export const generatePublicUrl =(filename)=>{
-    return `http://localhost:7070/uploadsProducts/${filename}`
+    return `${API}/uploadsProducts/${filename}`
 }

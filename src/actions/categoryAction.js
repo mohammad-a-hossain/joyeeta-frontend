@@ -10,8 +10,7 @@ export const getAllCategory =()=>{
         if(res.status === 200){
          const  {categoryList} = res.data
         dispatch({type:categoryConstant.GETALLCATEGORY_SUCCESS,
-                  payload:{categories:categoryList
-                }
+                  payload:{categories:categoryList}
              })
         }else{
         dispatch({type:categoryConstant.GETALLCATEGORY_FAILURE,
@@ -22,7 +21,7 @@ export const getAllCategory =()=>{
     }
 }
 
-export const addCategory =(form)=>{
+/* export const addCategory =(form)=>{
     return async dispatch =>{
         dispatch({type:categoryConstant.ADDNEW_CATEGORY_REQUEST})
         const res = await axios.post(`/category/create`,form)
@@ -38,4 +37,4 @@ export const addCategory =(form)=>{
                       })
         }
     }
-}
+} */

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './menuStyle.css'
-import { getAllCategory } from './../../actions/categoryAction';
+import { getAllCategory } from '../../actions';
 
 export const MenueHeader = (props) => {
   const category = useSelector(state => state.category)
-  console.log(category)
+  //console.log(category.length)
+ 
   const dispatch = useDispatch()
 
   useEffect(()=>{
@@ -13,22 +14,24 @@ export const MenueHeader = (props) => {
   },[])
 
   const renderCategory = (categories) =>{
-    let Mycategories =[]
+    let myCategories =[]
     for(let category of categories){
-        Mycategories.push(
+      myCategories.push(
           <li key={category.name}>
           {
-            category.parentId ? <a
-              href={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
+             category.parentId ? <a 
+              href={`/${category.slug}?catId=${category._id}&type=${category.type} `}>
               {category.name}
-            </a> :
-            <span>{category.name}</span>
+            </a> : 
+           <span>{category.name}</span>
           }
+   
           {category.children.length > 0 ? (<ul>{renderCategory(category.children)}</ul>) : null}
         </li>
+       
         )
     }
-    return Mycategories
+    return  myCategories
 }
 
   return (<div className='menuHeader'>
